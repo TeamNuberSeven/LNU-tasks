@@ -35,10 +35,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="source\data\IStudentRepository.cs" />
+    <Compile Include="source\data\ITeacherRepository.cs" />
+    <Compile Include="source\data\StudentRepository.cs" />
+    <Compile Include="source\data\TeacherRepository.cs" />
+    <Compile Include="source\domain\use_cases\FetchStudent.cs" />
+    <Compile Include="source\domain\use_cases\FetchTeacher.cs" />
     <Compile Include="source\Main.cs" />
-    <Compile Include="source\Person.cs" />
-    <Compile Include="source\Student.cs" />
-    <Compile Include="source\Teacher.cs" />
+    <Compile Include="source\domain\entities\Person.cs" />
+    <Compile Include="source\domain\entities\Student.cs" />
+    <Compile Include="source\domain\entities\Teacher.cs" />
+    <Compile Include="source\presentation\MainUI.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
