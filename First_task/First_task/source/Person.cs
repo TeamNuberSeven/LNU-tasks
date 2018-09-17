@@ -7,6 +7,7 @@ namespace First_task.source
 	{
 		private string _name;
 		private int _age;
+		private string _id;
 
 		public string Name
 		{
@@ -20,16 +21,23 @@ namespace First_task.source
 			set => _age = value;
 		}
 
+		public string Id
+		{
+			get => _id;
+			set => _id = value;
+		}
+
 		protected Person()
 		{
 			Name = string.Empty;
 			Age = 0;
 		}
 
-		protected Person(string name, int age)
+		protected Person(string name, int age, string id)
 		{
 			Name = name;
 			Age = age;
+			Id = id;
 		}
 
 		public override string ToString()
