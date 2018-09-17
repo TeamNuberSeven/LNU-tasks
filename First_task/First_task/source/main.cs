@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using First_task.source.data;
+﻿using First_task.source.data;
 using First_task.source.domain.use_cases;
 using First_task.source.presentation;
 
