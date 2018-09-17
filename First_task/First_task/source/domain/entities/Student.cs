@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace First_task.source
+namespace First_task.source.domain.entities
 {
-	class Student : Person
+	public class Student : Person
 	{
 		private string _facility;
 		private string _teacherId;
@@ -40,7 +40,7 @@ namespace First_task.source
 		public override void Print()
 		{
 			base.Print();
-			Console.WriteLine($"\nFacility: {0}", Facility);
+			Console.WriteLine($"Facility: {Facility}");
 		}
 
 		public override void Input(string data)

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace First_task.source
+namespace First_task.source.domain.entities
 {
-	abstract class Person
+	public abstract class Person
 	{
 		private string _name;
 		private int _age;
@@ -63,7 +63,7 @@ namespace First_task.source
 
 		public virtual void Print()
 		{
-			Console.WriteLine($"\nName: {0} \nAge: {1}", Name, Age);
+			Console.WriteLine($"\nName: {Name} \nAge: {Age}");
 		}
 
 		public virtual void Input(string data)

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace First_task.source
+namespace First_task.source.domain.entities
 {
-	class Teacher : Person
+	public class Teacher : Person
 	{
 		private string _degree;
 		private string _subject;
