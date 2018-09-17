@@ -8,7 +8,7 @@ namespace First_task.source
 	{
 		private string _degree;
 		private string _subject;
-		private List<string> _students;
+		private List<string> _studentsId;
 
 		public string Degree
 		{
@@ -22,40 +22,44 @@ namespace First_task.source
 			set => _subject = value;
 		}
 
-		internal List<string> Students
+		internal List<string> StudentsId
 		{
-			get => _students;
-			set => _students = value;
+			get => _studentsId;
+			set => _studentsId = value;
 		}
 
 		public Teacher()
 		{
 			Degree = string.Empty;
 			Subject = string.Empty;
-			Students = new List<string>();
+			StudentsId = new List<string>();
 		}
 
-		public Teacher(string name, int age, string degree, string subject, List<string> students) : base(name, age)
+		public Teacher(string name, int age,string id, string degree, string subject) : base(name, age,id)
 		{
 			Degree = degree;
-			Subject = subject;
-			foreach (string stud in students)
-			{
-				Students.Add(stud);
-			}
+			Subject = subject;			
 		}
 
 		public override string ToString()
 		{
 			return $"\nName: {Name}, Age: {Age}, Degree {Degree}, Subject: {Subject}" +
-			       Students.Aggregate("", (current, student) => current + " " + student);
+			       StudentsId.Aggregate("", (current, student) => current + " " + student);
 		}
 
+		public void AssignStudents(List<Student> students)
+		{
+			foreach (Student stud in students)
+			{
+				StudentsId.Add(stud.Id);
+				stud.TeacherId = Id;
+			}
+		}
 		public override void Print()
 		{
 			base.Print();
 			Console.WriteLine($"\nDegree: {0} \nSubject: {1}", Degree, Subject);
-			foreach (var student in Students)
+			foreach (var student in StudentsId)
 			{
 				Console.WriteLine(student);
 			}
@@ -69,7 +73,7 @@ namespace First_task.source
 			Subject = words[3];
 			for (int i = 4; i < words.Length; i++)
 			{
-				Students.Add(words[i]);
+				StudentsId.Add(words[i]);
 			}
 		}
 
@@ -80,7 +84,7 @@ namespace First_task.source
 			       base.Equals(obj) &&
 			       Degree == teacher.Degree &&
 			       Subject == teacher.Subject &&
-			       EqualityComparer<List<string>>.Default.Equals(Students, teacher.Students);
+			       EqualityComparer<List<string>>.Default.Equals(StudentsId, teacher.StudentsId);
 		}
 
 		public override int GetHashCode()
@@ -89,7 +93,7 @@ namespace First_task.source
 			hashCode = hashCode * -1521134295 + base.GetHashCode();
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Degree);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Subject);
-			hashCode = hashCode * -1521134295 + EqualityComparer<List<string>>.Default.GetHashCode(Students);
+			hashCode = hashCode * -1521134295 + EqualityComparer<List<string>>.Default.GetHashCode(StudentsId);
 			return hashCode;
 		}
 

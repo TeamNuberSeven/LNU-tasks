@@ -5,67 +5,67 @@ namespace First_task.source
 {
 	class Student : Person
 	{
-		private string _facultet;
-		private string _myTeacher;
+		private string _facility;
+		private string _teacherId;
 
-		public string Facultet
+		public string Facility
 		{
-			get => _facultet;
-			set => _facultet = value;
+			get => _facility;
+			set => _facility = value;
 		}
 
-		internal string MyTeacher
+		internal string TeacherId
 		{
-			get => _myTeacher;
-			set => _myTeacher = value;
+			get => _teacherId;
+			set => _teacherId = value;
 		}
 
 		public Student()
 		{
-			Facultet = string.Empty;
-			MyTeacher = string.Empty;
+			Facility = string.Empty;
+			TeacherId = string.Empty;
 		}
 
-		public Student(string name, int age, string facultet, string teacher) : base(name, age)
+		public Student(string name, int age, string id, string facility, string teacherId) : base(name, age,id)
 		{
-			Facultet = facultet;
-			MyTeacher = teacher;
+			Facility = facility;
+			TeacherId = teacherId;
 		}
 
 		public override string ToString()
 		{
-			return $"\nName: {Name}, Age: {Age}, Facultet {Facultet}, My teacher: {MyTeacher}";
+			return $"\nName: {Name}, Age: {Age}, Facility {Facility}";
 		}
 
 		public override void Print()
 		{
 			base.Print();
-			Console.WriteLine($"\nFacultet: {0} \n My teacher: {1}", Facultet, MyTeacher);
+			Console.WriteLine($"\nFacility: {0}", Facility);
 		}
 
 		public override void Input(string data)
 		{
 			base.Input(data);
 			var words = data.Split(' ');
-			Facultet = words[2];
-			MyTeacher = words[3];
+			Facility = words[2];
+			TeacherId = words[3];
 		}
 
 		public override bool Equals(object obj)
 		{
 			var student = obj as Student;
 			return student != null &&
-				   base.Equals(obj) &&
-				   Facultet == student.Facultet &&
-				   EqualityComparer<string>.Default.Equals(MyTeacher, student.MyTeacher);
+			       base.Equals(obj) &&
+			       Facility == student.Facility &&
+			       EqualityComparer<string>.Default.Equals(TeacherId, student.TeacherId);
 		}
 
 		public override int GetHashCode()
 		{
 			var hashCode = 1568470154;
 			hashCode = hashCode * -1521134295 + base.GetHashCode();
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Facultet);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(MyTeacher);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Facility);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TeacherId);
 			return hashCode;
 		}
 
