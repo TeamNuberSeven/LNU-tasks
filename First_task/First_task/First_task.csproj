@@ -36,6 +36,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="source\Main.cs" />
+    <Compile Include="source\Person.cs" />
+    <Compile Include="source\Student.cs" />
+    <Compile Include="source\Teacher.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
