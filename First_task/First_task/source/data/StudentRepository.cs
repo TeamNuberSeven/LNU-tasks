@@ -10,7 +10,7 @@ namespace First_task.source.data
 			return new List<Student>
 			{
 				new Student("Vitalik", 19, "1", "Applied math", "1"),
-				new Student("Oleksii", 19, "2", "Applied math", "1"),
+				new Student("Oleksii", 19, "2", "Applied math", "2"),
 				new Student("Luibomur", 21, "3", "Applied math", "1")
 			};
 		}
