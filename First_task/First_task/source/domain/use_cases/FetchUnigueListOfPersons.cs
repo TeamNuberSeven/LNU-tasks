@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace First_task.source.domain.use_cases
 {
-    class FetchUnigueListOfPersons
+    public class FetchUnigueListOfPersons
     {
         private readonly IPersonRepository _repo;
 

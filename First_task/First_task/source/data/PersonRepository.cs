@@ -1,15 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using First_task.source.domain.entities;
 using Newtonsoft.Json.Linq;
 
 namespace First_task.source.data
 {
-    public class PersonRepository : IPersonRepository
+	/// <summary>
+	/// Implementation of <see cref="IPersonRepository"/>.
+	/// </summary>
+	public class PersonRepository : IPersonRepository
     {
         private const string FILE_PATH = "..//..//source/data/data_source/DataBase.json";
 
+        /// <summary>
+        /// Fetch data.
+        /// </summary>
+        /// <returns></returns>
         public List<Person> Fetch()
         {
             var data = new List<Person>();

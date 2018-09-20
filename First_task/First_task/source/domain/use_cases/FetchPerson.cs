@@ -7,6 +7,9 @@ using First_task.source.presentation;
 
 namespace First_task.source.domain.use_cases
 {
+	/// <summary>
+	/// Use case to fetch base data in format <see cref="Person"/>/<see cref="Teacher"/>/<see cref="Student"/>.
+	/// </summary>
 	public class FetchPersons
 	{
 		private readonly IPersonRepository _repo;
@@ -14,17 +17,31 @@ namespace First_task.source.domain.use_cases
 	    private const string FILE_PATH_ERROR = "Sorry data source is invalid, we work to resolve this issue";
 	    private const string FILE_FORMAT_ERROR = "Sorry data was corrupted, we work to resolve this issue";
 
-        public FetchPersons(IPersonRepository repo)
+		/// <summary>
+		/// Initialise new instance of <see cref="FetchPersons"/> class, which have declared repository.
+		/// </summary>
+		/// <param name="repo"></param>
+		public FetchPersons(IPersonRepository repo)
 		{
 			_repo = repo;
 		}
 
+	    /// <summary>
+	    /// Reference to presentation layer.
+	    /// </summary>
 	    public IMainView View
 	    {
 	        set => _view = value;
 	    }
 
-	    public List<Person> Fetch()
+		/// <summary>
+		/// Fetch data from repository.
+		/// </summary>
+		/// <exception cref="FileNotFoundException"></exception>
+		/// <exception cref="ArgumentException"></exception>
+		/// <exception cref="NullReferenceException"></exception>
+		/// <returns></returns>
+		public List<Person> Fetch()
 		{
 		    try
 		    {
