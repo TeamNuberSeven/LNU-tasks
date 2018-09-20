@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace First_task.source.domain.use_cases
 {
-    class CountAmountOfPersons
+    public class CountAmountOfPersons
     {
         private const string AMOUNT = "Amount of student ";
         private const string TEACHER_AMOUNT = "and amount of teacher: ";
