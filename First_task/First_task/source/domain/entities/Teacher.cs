@@ -58,7 +58,7 @@ namespace First_task.source.domain.entities
 		public override void Print()
 		{
 			base.Print();
-			Console.WriteLine($"\nDegree: {0} \nSubject: {1}", Degree, Subject);
+			Console.WriteLine($"\nDegree:  {Degree} \nSubject: {Subject}");
 			foreach (var student in StudentsId)
 			{
 				Console.WriteLine(student);

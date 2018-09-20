@@ -1,0 +1,104 @@
+﻿{
+	"Teachers" : [
+		{
+			"name": "First Teacher",
+			"age": 32,
+			"id": "1",
+			"degree": "master",
+			"subject": "Applied math"
+		},
+		{
+			"name": "Second Teacher",
+			"age": 43,
+			"id": "2",
+			"degree": "doctor",
+			"subject": "English"
+		},
+		{
+			"name": "Third Teacher",
+			"age": 28,
+			"id": "3",
+			"degree": "master",
+			"subject": "Programming"
+		}
+	],
+	"Students" :  [
+		{
+			"name": "First Student",
+			"age": 18,
+			"id": "1",
+			"facility" :  "Applied Math",
+			"teacherId" :  "1"
+		},
+		{
+			"name": "Second Student",
+			"age": 20,
+			"id": "2",
+			"facility" :  "Applied Math",
+			"teacherId" :  "1"
+		},
+		{
+			"name": "Third Student",
+			"age": 19,
+			"id": "3",
+			"facility" :  "Discrete math",
+			"teacherId" :  "3"
+		},
+		{
+			"name": "Fourth Student",
+			"age": 18,
+			"id": "4",
+			"facility" :  "Programming",
+			"teacherId" :  "3"
+		},
+		{
+			"name": "Fifth Student",
+			"age": 18,
+			"id": "5",
+			"facility" :  "Programming",
+			"teacherId" :  "3"
+		},
+		{
+			"name": "Sixth Student",
+			"age": 18,
+			"id": "6",
+			"facility" :  "English",
+			"teacherId" :  "2"
+		},
+		{
+			"name": "Seventh Student",
+			"age": 18,
+			"id": "7",
+			"facility" :  "English",
+			"teacherId" :  "2"
+		},
+		{
+			"name": "Eighth Student",
+			"age": 19,
+			"id": "8",
+			"facility" :  "English",
+			"teacherId" :  "2"
+		},
+		{
+			"name": "Ninth Student",
+			"age": 18,
+			"id": "9",
+			"facility" :  "Applied Math",
+			"teacherId" :  "1"
+		},
+		{
+			"name": "Tenth Student",
+			"age": 18,
+			"id": "10",
+			"facility" :  "Applied Math",
+			"teacherId" :  "1"
+		},
+		{
+			"name": "Eleventh Student",
+			"age": 18,
+			"id": "11",
+			"facility" :  "Applied Math",
+			"teacherId" :  "1"
+		}
+	]
+}

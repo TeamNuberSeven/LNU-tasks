@@ -5,10 +5,10 @@ using First_task.source.presentation;
 namespace First_task.source{
 	class FirstProjectRoot{
 		public static void Main(string[] args){
-			FetchStudent fetchStudent = new FetchStudent(new StudentRepository());
-			FetchTeacher fetchTeacher = new FetchTeacher(new TeacherRepository());
-			MainUi ui = new MainUi(fetchStudent, fetchTeacher);
-			ui.Print();
+		    var fetchPersons = new FetchPersons(new PersonRepository());
+		    var ui = new MainUi(fetchPersons);
+		    fetchPersons.View = ui;
+            ui.Print();
 		}
 	}
 }
