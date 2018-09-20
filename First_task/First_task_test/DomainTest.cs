@@ -11,7 +11,7 @@ namespace First_task_test
     public class DomainTest
     {
         private List<Person> _mockPersons;
-        private IPersonRepository repo;
+        private IPersonRepository _repo;
         private const int AMOUNT_OF_UNIQUE_ELEMENTS = 4;
         private const int AMOUNT_OF_STUDENTS = 3;
         private const int AMOUNT_OF_TEACHERS = 3;
@@ -30,14 +30,14 @@ namespace First_task_test
                 new Student("name3", 3, "3", "3", "3"),
                 new Teacher("name2", 2, "2", "2", "2"),
             };
-            repo = Substitute.For<IPersonRepository>();
-            repo.Fetch().Returns(_mockPersons);
+            _repo = Substitute.For<IPersonRepository>();
+            _repo.Fetch().Returns(_mockPersons);
         }
 
         [TestMethod]
         public void FetchPersonTest()
         {
-            var fetchPersons = new FetchPersons(repo).Fetch();
+            var fetchPersons = new FetchPersons(_repo).Fetch();
             Assert.AreEqual(_mockPersons[0], fetchPersons[0]);
             Assert.AreEqual(_mockPersons[3], fetchPersons[3]);
         }
@@ -45,14 +45,14 @@ namespace First_task_test
         [TestMethod]
         public void FetchUniqueListOfPersonsTest()
         {
-            var uniquePersons = new FetchUnigueListOfPersons(repo).FetchUnique();
+            var uniquePersons = new FetchUnigueListOfPersons(_repo).FetchUnique();
             Assert.AreEqual(uniquePersons.Count, AMOUNT_OF_UNIQUE_ELEMENTS);
         }
 
         [TestMethod]
         public void CountAmountOfPersons()
         {
-            var personsAmount = new CountAmountOfPersons(repo).CountPerson();
+            var personsAmount = new CountAmountOfPersons(_repo).CountPerson();
             var resultString = string.Format(AMOUNT + AMOUNT_OF_STUDENTS + TEACHER_AMOUNT + AMOUNT_OF_TEACHERS);
             Assert.AreEqual(personsAmount, resultString);
         }
