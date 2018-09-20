@@ -39,6 +39,8 @@
   <ItemGroup>
     <Compile Include="source\data\IPersonRepository.cs" />
     <Compile Include="source\data\PersonRepository.cs" />
+    <Compile Include="source\domain\use_cases\FetchUnigueListOfPersons.cs" />
+    <Compile Include="source\domain\use_cases\CountAmountOfPersons.cs" />
     <Compile Include="source\domain\use_cases\FetchPerson.cs" />
     <Compile Include="source\Main.cs" />
     <Compile Include="source\domain\entities\Person.cs" />
@@ -51,6 +53,7 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
