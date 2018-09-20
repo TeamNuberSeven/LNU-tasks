@@ -20,11 +20,15 @@ namespace First_task.source.domain.entities
 			set => _facility = value;
 		}
 
-		internal string TeacherId
+		/// <summary>
+		/// Get/Set of <see cref="Student"/> -> <see cref="Teacher"/>Id.
+		/// </summary>
+		public string TeacherId
 		{
 			get => _teacherId;
 			set => _teacherId = value;
 		}
+
 
 		/// <summary>
 		/// Initialise new instance of <see cref="Student"/> class, which have default values.
@@ -43,7 +47,8 @@ namespace First_task.source.domain.entities
 		/// <param name="id"><see cref="Student"/> id.</param>
 		/// <param name="facility"><see cref="Student"/> facility.</param>
 		/// <param name="teacherId"><see cref="Teacher"/> ID.</param>
-		public Student(string name, int age, string id, string facility, string teacherId) : base(name, age,id)
+		public Student(string name, int age, string id, string facility, string teacherId) : base(name, age,
+			id)
 		{
 			Facility = facility;
 			TeacherId = teacherId;
@@ -55,7 +60,7 @@ namespace First_task.source.domain.entities
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return $"\nName: {Name}, Age: {Age}, Facility {Facility}";
+			return $"Name: {Name}, Age: {Age}, Facility {Facility}";
 		}
 
 		/// <summary>

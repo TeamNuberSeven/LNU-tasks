@@ -10,7 +10,7 @@ namespace First_task.source.domain.use_cases
 	public class CountAmountOfPersons
     {
         private const string AMOUNT = "Amount of student ";
-        private const string TEACHER_AMOUNT = "and amount of teacher: ";
+        private const string TEACHER_AMOUNT = "\nAmount of teacher: ";
         private readonly IPersonRepository _repo;
 
 		/// <summary>
