@@ -10,6 +10,8 @@ namespace First_task.source.domain.use_cases
 {
     class CountAmountOfPersons
     {
+        private const string AMOUNT = "Amount of student ";
+        private const string TEACHER_AMOUNT = "and amount of teacher: ";
         private readonly IPersonRepository _repo;
 
         public CountAmountOfPersons(IPersonRepository repo)
@@ -21,7 +23,7 @@ namespace First_task.source.domain.use_cases
         {
             int countStudents = _repo.Fetch().Where(p => p is Student).Count();
             int countTeachers = _repo.Fetch().Where(p => p is Teacher).Count();
-            return string.Format("Amount of student {0} and amount of teacher: {1}", countStudents, countTeachers);
+            return string.Format(AMOUNT + countStudents + TEACHER_AMOUNT + countTeachers);
         }
     }
 }

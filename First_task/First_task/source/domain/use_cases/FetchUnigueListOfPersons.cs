@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace First_task.source.domain.use_cases
 {
-    class CheckForEquality
+    class FetchUnigueListOfPersons
     {
         private readonly IPersonRepository _repo;
 
-        public CheckForEquality(IPersonRepository repo)
+        public FetchUnigueListOfPersons(IPersonRepository repo)
         {
             _repo = repo;
         }
 
-        public List<Person> DemonstrateEquals()
+        public List<Person> FetchUnique()
         {
             IEnumerable<Person> persons = _repo.Fetch().Distinct();
             return persons.ToList();            

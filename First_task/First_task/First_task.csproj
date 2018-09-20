@@ -39,7 +39,7 @@
   <ItemGroup>
     <Compile Include="source\data\IPersonRepository.cs" />
     <Compile Include="source\data\PersonRepository.cs" />
-    <Compile Include="source\domain\use_cases\CheckForEquality.cs" />
+    <Compile Include="source\domain\use_cases\FetchUnigueListOfPersons.cs" />
     <Compile Include="source\domain\use_cases\CountAmountOfPersons.cs" />
     <Compile Include="source\domain\use_cases\FetchPerson.cs" />
     <Compile Include="source\Main.cs" />
