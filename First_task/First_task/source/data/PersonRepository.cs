@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using First_task.source.domain.entities;
 using Newtonsoft.Json.Linq;
 
@@ -30,7 +31,7 @@ namespace First_task.source.data
             var data = new List<T>();
             rawData.Children().ToList().ForEach((person) =>
             {
-                data.Add(person.ToObject<T>());
+	           data.Add(person.ToObject<T>());
             });
             return data;
         }

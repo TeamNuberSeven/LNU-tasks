@@ -67,7 +67,7 @@ namespace First_task.source.domain.entities
 		/// <returns></returns>
 		public override string ToString()
 		{
-			return $"\nName: {Name}, Age: {Age}, Degree {Degree}, Subject: {Subject}" +
+			return $"Name: {Name}, Age: {Age}, Degree {Degree}, Subject: {Subject}" +
 			       StudentsId.Aggregate("", (current, student) => current + " " + student);
 		}
 
