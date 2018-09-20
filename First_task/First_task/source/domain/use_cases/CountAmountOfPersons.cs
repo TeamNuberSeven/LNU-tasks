@@ -1,24 +1,31 @@
 ﻿using First_task.source.data;
 using First_task.source.domain.entities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace First_task.source.domain.use_cases
 {
-    public class CountAmountOfPersons
+	/// <summary>
+	/// Gives you class for counting <see cref="Person"/> in collection.
+	/// </summary>
+	public class CountAmountOfPersons
     {
         private const string AMOUNT = "Amount of student ";
         private const string TEACHER_AMOUNT = "and amount of teacher: ";
         private readonly IPersonRepository _repo;
 
-        public CountAmountOfPersons(IPersonRepository repo)
+		/// <summary>
+		/// Initialise new instance of <see cref="CountAmountOfPersons"/> class, which have declared repository.
+		/// </summary>
+		/// <param name="repo"></param>
+		public CountAmountOfPersons(IPersonRepository repo)
         {
             _repo = repo;
         }
 
+        /// <summary>
+        /// Counts <see cref="Person"/> and gives you <see cref="string"/> with number.
+        /// </summary>
+        /// <returns></returns>
         public string CountPerson()
         {
             int countStudents = _repo.Fetch().Where(p => p is Student).Count();
