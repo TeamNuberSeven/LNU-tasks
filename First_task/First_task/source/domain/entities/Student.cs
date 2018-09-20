@@ -40,7 +40,7 @@ namespace First_task.source.domain.entities
 		public override void Print()
 		{
 			base.Print();
-			Console.WriteLine($"Facility: {Facility}");
+			Console.WriteLine($"\nFacility: {Facility}");
 		}
 
 		public override void Input(string data)

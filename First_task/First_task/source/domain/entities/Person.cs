@@ -12,7 +12,7 @@ namespace First_task.source.domain.entities
 		public string Name
 		{
 			get => _name;
-			set => _name = value.Replace(" ", "_");
+			set => _name = value.Replace("_", " ");
 		}
 
 		public int Age
@@ -35,7 +35,7 @@ namespace First_task.source.domain.entities
 
 		protected Person(string name, int age, string id)
 		{
-			Name = name;
+			Name = name.Replace("_", " ");
 			Age = age;
 			Id = id;
 		}
@@ -63,7 +63,7 @@ namespace First_task.source.domain.entities
 
 		public virtual void Print()
 		{
-			Console.WriteLine($"\nName: {Name} \nAge: {Age}");
+			Console.Write($"\nName: {Name} \nAge: {Age}");
 		}
 
 		public virtual void Input(string data)

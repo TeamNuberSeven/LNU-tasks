@@ -1,22 +1,26 @@
-﻿using First_task.source.domain.use_cases;
+﻿using System;
+using First_task.source.domain.use_cases;
 
 namespace First_task.source.presentation
 {
-	public class MainUi
+	public class MainUi : IMainView
 	{
-		private readonly FetchStudent _fetchStudent;
-		private readonly FetchTeacher _fetchTeacher;
+		private readonly FetchPersons _fetchPersons;
 
-		public MainUi(FetchStudent fetchStudent, FetchTeacher fetchTeacher)
+		public MainUi(FetchPersons fetchPersons)
 		{
-			_fetchStudent = fetchStudent;
-			_fetchTeacher = fetchTeacher;
+		    _fetchPersons = fetchPersons;
 		}
 
 		public void Print()
 		{
-			var students = _fetchStudent.Fetch();
-			students.ForEach((student) => { student.Print(); });
+			var persons = _fetchPersons.Fetch();
+			persons.ForEach((student) => { student.Print(); });
 		}
+
+	    public void PrintError(string message)
+	    {
+	        Console.WriteLine(message);
+	    }
 	}
 }

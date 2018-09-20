@@ -33,20 +33,24 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="source\data\data_source\DataBase.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="source\data\IStudentRepository.cs" />
-    <Compile Include="source\data\ITeacherRepository.cs" />
-    <Compile Include="source\data\StudentRepository.cs" />
-    <Compile Include="source\data\TeacherRepository.cs" />
-    <Compile Include="source\domain\use_cases\FetchStudent.cs" />
-    <Compile Include="source\domain\use_cases\FetchTeacher.cs" />
+    <Compile Include="source\data\IPersonRepository.cs" />
+    <Compile Include="source\data\PersonRepository.cs" />
+    <Compile Include="source\domain\use_cases\FetchPerson.cs" />
     <Compile Include="source\Main.cs" />
     <Compile Include="source\domain\entities\Person.cs" />
     <Compile Include="source\domain\entities\Student.cs" />
     <Compile Include="source\domain\entities\Teacher.cs" />
+    <Compile Include="source\presentation\IMainView.cs" />
     <Compile Include="source\presentation\MainUI.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

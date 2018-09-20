@@ -3,8 +3,8 @@ using First_task.source.domain.entities;
 
 namespace First_task.source.data
 {
-	public interface ITeacherRepository
-	{
-		List<Teacher> Fetch();
-	}
+    public interface IPersonRepository
+    {
+        List<Person> Fetch();
+    }
 }
