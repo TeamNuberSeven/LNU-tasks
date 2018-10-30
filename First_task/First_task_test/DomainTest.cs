@@ -16,7 +16,7 @@ namespace First_task_test
         private const int AMOUNT_OF_STUDENTS = 3;
         private const int AMOUNT_OF_TEACHERS = 3;
         private const string AMOUNT = "Amount of student ";
-        private const string TEACHER_AMOUNT = "and amount of teacher: ";
+        private const string TEACHER_AMOUNT = "\nAmount of teacher: "; 
 
         [TestInitialize]
         public void Init()
