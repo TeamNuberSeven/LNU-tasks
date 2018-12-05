@@ -81,8 +81,6 @@ namespace Task4_ADO.NET_
                 //21
                 CommandReader("SELECT DISTINCT CompanyName, OrderDetails.Quantity, OrderDetails.Quantity*OrderDetails.UnitPrice as Sum FROM Customers,Orders,OrderDetails " +
                                     "WHERE OrderDetails.ProductID=14 AND  Orders.CustomerID = Customers.CustomerID AND OrderDetails.OrderID = Orders.OrderID", connection, 21);
-                //22
-                //CommandReader("", connection);
                 //23
                 CommandReader("SELECT DISTINCT Customers.CompanyName FROM Customers,Orders,OrderDetails,Suppliers,Products" +
                                     " WHERE Customers.Country='France'AND OrderDetails.ProductID=Products.ProductID AND " +
@@ -104,6 +102,37 @@ namespace Task4_ADO.NET_
                                     "56500.9100 - SUM(OrderDetails.UnitPrice) as NondomesticSum  FROM Customers, OrderDetails, Orders " +
                                     "WHERE   Orders.CustomerID = Customers.CustomerID AND OrderDetails.OrderID = Orders.OrderID  " +
                                     "GROUP BY  Customers.Country  ", connection, 26);
+
+                //27
+                CommandReader("SELECT Categories.CategoryName, SUM(OrderDetails.UnitPrice) FROM Categories, OrderDetails, Orders " +
+                                    "WHERE OrderDetails.OrderID = Orders.OrderID AND Orders.OrderDate > '1998.01.01' AND Orders.OrderDate < '1998.12.31' " +
+                                    "GROUP BY Categories.CategoryName", connection, 27);
+                //28
+                CommandReader("select distinct ProductName, x.UnitPrice from Products" +
+                                    " inner join (select ShippedDate, ProductID , UnitPrice from Orders " +
+                                    "inner join OrderDetails on Orders.OrderID = OrderDetails.OrderID ) as x on" +
+                                    " Products.ProductID = x.ProductID", connection, 28);
+                //29
+                CommandReader("select a.Title, b.EmployeeID from Employees as a left join Employees as b on a.EmployeeID = b.EmployeeID", connection, 29);
+                //30
+                CommandReader("select distinct City from (select Customers.City from Customers" +
+                                    " inner join Employees on Customers.City = Employees.City) as x " +
+                                    "inner join Orders on x.City = Orders.ShipCity", connection, 30);
+                //31
+                CommandReader("INSERT INTO Employees(LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes)" +
+                                    " VALUES('Ivanov', 'Ivan', '1999.08.01', '2018.08.01', 'Hrubenka,5', 'Kiyv', 'Ukraine', 'Zahirnuy Bohdan')," +
+                                    "('Petrenko', 'Petro', '1999.07.21', '2018.05.11', 'Kaprenka,21', 'Kiyv', 'Ukraine', 'Pankovec Zlata')," +
+                                    "('Makliuk', 'Maria', '1979.05.10', '2002.06.12', 'Rudenka,48', 'Lviv', 'Ukraine', 'Benko Muhailo')," +
+                                    "('Dankevuch', 'Andriy', '1987.01.09', '2005.09.06', 'Svobodu,8', 'Chernivci', 'Ukraine', 'Pankovec Zlata')," +
+                                    "('Tarekaniuk', 'Petro', '1996.11.02', '2018.10.11', 'Vasuliuka,26', 'Kiyv', 'Ukraine', 'Zahirnuy Bohdan')", connection, 31);
+                //32
+                CommandReader("SELECT * FROM Employees WHERE Country = 'Ukraine'", connection, 32);
+                //33
+                CommandReader("UPDATE Employees SET City = 'IvanoFrankivsk' WHERE FirstName = 'Andriy'", connection, 33);
+                //34
+                CommandReader("UPDATE Employees SET HireDate = GETDATE()", connection, 34);
+                //35
+                CommandReader("DELETE FROM Employees WHERE FirstName = 'Andriy'", connection, 35);
 
             }
             catch (Exception e)
