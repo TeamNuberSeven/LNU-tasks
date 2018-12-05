@@ -55,6 +55,55 @@ namespace Task4_ADO.NET_
                 //14
                 CommandReader("select distinct  FirstName, LastName, count(OrderID) as 'Number of orders' from Employees " +
                                     "left join  Orders on Employees.EmployeeID = Orders.EmployeeID where  YEAR(ShippedDate) = 1997 group by FirstName, LastName", connection, 14);
+                //15
+                CommandReader("select distinct  FirstName, LastName, count(OrderID) as 'Number of orders' from Employees " +
+                                    "inner join  Orders on Employees.EmployeeID = Orders.EmployeeID where  YEAR(ShippedDate) = 1997 group by FirstName, LastName", connection, 15);
+                //16
+                CommandReader("select distinct  FirstName, LastName, count(OrderID) as 'Number of orders' from Employees " +
+                                    "left join  Orders on Employees.EmployeeID = Orders.EmployeeID where  YEAR(ShippedDate) = 1997 and " +
+                                    "Orders.ShippedDate > Orders.RequiredDate group by FirstName, LastName", connection, 16);
+                //17
+                CommandReader("select count(OrderID) as 'France costumers' from Orders " +
+                                    "inner join Customers on Orders.CustomerID = Customers.CustomerID where Customers.Country = 'France'", connection, 17);
+                //18
+                CommandReader("select Customers.ContactName, count(Orders.OrderID) as 'Orders' from Customers " +
+                                    "inner join Orders on Customers.CustomerID = Orders.CustomerID where Customers.Country = 'France' " +
+                                    "group by Customers.ContactName having count(Orders.OrderID) > 1 ", connection, 18);
+                //19
+                CommandReader("select Customers.ContactName, count(Orders.OrderID) as 'Orders' from Customers " +
+                                    "inner join Orders on Customers.CustomerID = Orders.CustomerID where Customers.Country = 'France' " +
+                                    "group by Customers.ContactName having count(Orders.OrderID) > 1 ", connection, 19);
+
+                //20
+                CommandReader("SELECT DISTINCT CompanyName FROM Customers,Orders,OrderDetails " +
+                                    "WHERE OrderDetails.ProductID=14 AND  Orders.CustomerID = Customers.CustomerID AND" +
+                                    " OrderDetails.OrderID = Orders.OrderID", connection, 20);
+                //21
+                CommandReader("SELECT DISTINCT CompanyName, OrderDetails.Quantity, OrderDetails.Quantity*OrderDetails.UnitPrice as Sum FROM Customers,Orders,OrderDetails " +
+                                    "WHERE OrderDetails.ProductID=14 AND  Orders.CustomerID = Customers.CustomerID AND OrderDetails.OrderID = Orders.OrderID", connection, 21);
+                //22
+                //CommandReader("", connection);
+                //23
+                CommandReader("SELECT DISTINCT Customers.CompanyName FROM Customers,Orders,OrderDetails,Suppliers,Products" +
+                                    " WHERE Customers.Country='France'AND OrderDetails.ProductID=Products.ProductID AND " +
+                                    " Orders.CustomerID = Customers.CustomerID AND OrderDetails.OrderID = Orders.OrderID AND " +
+                                    "Products.SupplierID=Suppliers.SupplierID AND Suppliers.Country!='France'", connection, 23);
+
+                //24
+                CommandReader("SELECT DISTINCT Customers.CompanyName FROM Customers,Orders,OrderDetails,Suppliers,Products" +
+                                    " WHERE Customers.Country='France'AND OrderDetails.ProductID=Products.ProductID AND " +
+                                    " Orders.CustomerID = Customers.CustomerID AND OrderDetails.OrderID = Orders.OrderID AND" +
+                                    " Products.SupplierID=Suppliers.SupplierID AND Suppliers.Country='France'", connection, 24);
+
+                //25
+                CommandReader("SELECT Customers.Country,SUM(OrderDetails.UnitPrice) as Sum FROM Customers,OrderDetails,Orders " +
+                                    "WHERE   Orders.CustomerID = Customers.CustomerID AND OrderDetails.OrderID = Orders.OrderID  " +
+                                    "GROUP BY  Customers.Country  ", connection, 25);
+                //26
+                CommandReader("SELECT Customers.Country, SUM(OrderDetails.UnitPrice) as Sum, " +
+                                    "56500.9100 - SUM(OrderDetails.UnitPrice) as NondomesticSum  FROM Customers, OrderDetails, Orders " +
+                                    "WHERE   Orders.CustomerID = Customers.CustomerID AND OrderDetails.OrderID = Orders.OrderID  " +
+                                    "GROUP BY  Customers.Country  ", connection, 26);
 
             }
             catch (Exception e)
