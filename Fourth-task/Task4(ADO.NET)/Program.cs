@@ -75,42 +75,42 @@ namespace Task4_ADO.NET_
                                     "group by Customers.ContactName having count(Orders.OrderID) > 1 ", connection, 19);
 
                 //20
-                CommandReader("SELECT DISTINCT CompanyName FROM Customers,Orders,OrderDetails " +
-                                    "WHERE OrderDetails.ProductID=14 AND  Orders.CustomerID = Customers.CustomerID AND" +
-                                    " OrderDetails.OrderID = Orders.OrderID", connection, 20);
+                CommandReader("SELECT DISTINCT CompanyName FROM Customers,Orders,[Order Details] " +
+                                    "WHERE \"Order Details\".ProductID=14 AND  Orders.CustomerID = Customers.CustomerID AND" +
+                                    " \"Order Details\".OrderID = Orders.OrderID", connection, 20);
                 //21
-                CommandReader("SELECT DISTINCT CompanyName, OrderDetails.Quantity, OrderDetails.Quantity*OrderDetails.UnitPrice as Sum FROM Customers,Orders,OrderDetails " +
-                                    "WHERE OrderDetails.ProductID=14 AND  Orders.CustomerID = Customers.CustomerID AND OrderDetails.OrderID = Orders.OrderID", connection, 21);
+                CommandReader("SELECT DISTINCT CompanyName, \"Order Details\".Quantity, \"Order Details\".Quantity*\"Order Details\".UnitPrice as Sum FROM Customers,Orders,\"Order Details\" " +
+                                    "WHERE \"Order Details\".ProductID=14 AND  Orders.CustomerID = Customers.CustomerID AND \"Order Details\".OrderID = Orders.OrderID", connection, 21);
                 //23
-                CommandReader("SELECT DISTINCT Customers.CompanyName FROM Customers,Orders,OrderDetails,Suppliers,Products" +
-                                    " WHERE Customers.Country='France'AND OrderDetails.ProductID=Products.ProductID AND " +
-                                    " Orders.CustomerID = Customers.CustomerID AND OrderDetails.OrderID = Orders.OrderID AND " +
+                CommandReader("SELECT DISTINCT Customers.CompanyName FROM Customers,Orders,\"Order Details\",Suppliers,Products" +
+                                    " WHERE Customers.Country='France'AND \"Order Details\".ProductID=Products.ProductID AND " +
+                                    " Orders.CustomerID = Customers.CustomerID AND \"Order Details\".OrderID = Orders.OrderID AND " +
                                     "Products.SupplierID=Suppliers.SupplierID AND Suppliers.Country!='France'", connection, 23);
 
                 //24
-                CommandReader("SELECT DISTINCT Customers.CompanyName FROM Customers,Orders,OrderDetails,Suppliers,Products" +
-                                    " WHERE Customers.Country='France'AND OrderDetails.ProductID=Products.ProductID AND " +
-                                    " Orders.CustomerID = Customers.CustomerID AND OrderDetails.OrderID = Orders.OrderID AND" +
+                CommandReader("SELECT DISTINCT Customers.CompanyName FROM Customers,Orders,\"Order Details\",Suppliers,Products" +
+                                    " WHERE Customers.Country='France'AND \"Order Details\".ProductID=Products.ProductID AND " +
+                                    " Orders.CustomerID = Customers.CustomerID AND \"Order Details\".OrderID = Orders.OrderID AND" +
                                     " Products.SupplierID=Suppliers.SupplierID AND Suppliers.Country='France'", connection, 24);
 
                 //25
-                CommandReader("SELECT Customers.Country,SUM(OrderDetails.UnitPrice) as Sum FROM Customers,OrderDetails,Orders " +
-                                    "WHERE   Orders.CustomerID = Customers.CustomerID AND OrderDetails.OrderID = Orders.OrderID  " +
+                CommandReader("SELECT Customers.Country,SUM(\"Order Details\".UnitPrice) as Sum FROM Customers,\"Order Details\",Orders " +
+                                    "WHERE   Orders.CustomerID = Customers.CustomerID AND \"Order Details\".OrderID = Orders.OrderID  " +
                                     "GROUP BY  Customers.Country  ", connection, 25);
                 //26
-                CommandReader("SELECT Customers.Country, SUM(OrderDetails.UnitPrice) as Sum, " +
-                                    "56500.9100 - SUM(OrderDetails.UnitPrice) as NondomesticSum  FROM Customers, OrderDetails, Orders " +
-                                    "WHERE   Orders.CustomerID = Customers.CustomerID AND OrderDetails.OrderID = Orders.OrderID  " +
+                CommandReader("SELECT Customers.Country, SUM(\"Order Details\".UnitPrice) as Sum, " +
+                                    "56500.9100 - SUM(\"Order Details\".UnitPrice) as NondomesticSum  FROM Customers, \"Order Details\", Orders " +
+                                    "WHERE   Orders.CustomerID = Customers.CustomerID AND \"Order Details\".OrderID = Orders.OrderID  " +
                                     "GROUP BY  Customers.Country  ", connection, 26);
 
                 //27
-                CommandReader("SELECT Categories.CategoryName, SUM(OrderDetails.UnitPrice) FROM Categories, OrderDetails, Orders " +
-                                    "WHERE OrderDetails.OrderID = Orders.OrderID AND Orders.OrderDate > '1998.01.01' AND Orders.OrderDate < '1998.12.31' " +
+                CommandReader("SELECT Categories.CategoryName, SUM(\"Order Details\".UnitPrice) FROM Categories, \"Order Details\", Orders " +
+                                    "WHERE \"Order Details\".OrderID = Orders.OrderID AND Orders.OrderDate > '1998.01.01' AND Orders.OrderDate < '1998.12.31' " +
                                     "GROUP BY Categories.CategoryName", connection, 27);
                 //28
                 CommandReader("select distinct ProductName, x.UnitPrice from Products" +
                                     " inner join (select ShippedDate, ProductID , UnitPrice from Orders " +
-                                    "inner join OrderDetails on Orders.OrderID = OrderDetails.OrderID ) as x on" +
+                                    "inner join \"Order Details\" on Orders.OrderID = \"Order Details\".OrderID ) as x on" +
                                     " Products.ProductID = x.ProductID", connection, 28);
                 //29
                 CommandReader("select a.Title, b.EmployeeID from Employees as a left join Employees as b on a.EmployeeID = b.EmployeeID", connection, 29);
